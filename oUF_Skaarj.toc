@@ -1,0 +1,30 @@
+## Interface: 50001
+## Title: oUF_Skaarj
+## Author: awi
+## Version: 0.1
+## Notes: oUF layout.
+## Dependencies: oUF
+## OptionalDeps: 
+## Credits: Skaarj, haste, Freebaser, Alez, Zork, Shestak
+
+
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+libs\LibMapData-1.0\library.lua
+
+cfg.lua
+
+Plugins\oUF_Smooth.lua
+Plugins\oUF_AuraTracker.lua
+Plugins\oUF_DebuffHighlight.lua
+Plugins\oUF_AuraWatch.lua
+Plugins\oUF_Shadoworbs.lua
+
+
+Core\functions.lua
+
+Core\range.lua
+Core\raiddebuffs.lua
+Core\tags.lua
+Core\cluster.lua
+Core\layout.lua
