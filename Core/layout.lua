@@ -338,6 +338,11 @@ local Resurrect = function(self)
 	self.ResurrectIcon = res
 end
 
+local PhanxResurrect = function(self) 
+	self.ResInfo = self.Health.CreateFontString(nil, 16, "CENTER")
+	self.ResInfo:SetPoint("CENTER", 0, 1)
+end
+
 local Healcomm = function(self) 
 	
 	local mhpb = createStatusbar(self.Health, cfg.texture, nil, nil, self:GetWidth(), 0.33, 0.59, 0.33, 0.75)
@@ -1060,7 +1065,8 @@ local UnitSpecific = {
 		
 		if cfg.healcomm then Healcomm(self) end
 		
-		Resurrect(self)
+		--Resurrect(self)
+		PhanxResurrect(self)
 		createAuraWatch(self)
 
 		local debuffs = CreateFrame("Frame", nil, self)
