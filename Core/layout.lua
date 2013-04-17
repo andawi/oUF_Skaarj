@@ -293,7 +293,7 @@ local createAuraWatch = function(self, unit)
 				icon.anyUnit = v[5] 
 				
 				local name, _, image = GetSpellInfo(v[1])
-				local tex = icon:CreateTexture(nil, "OVERLAY")
+				local tex = icon:CreateTexture(nil, "ARTWORK")
 				tex:SetTexCoord(.07, .93, .07, .93)
 				
 				tex:SetAllPoints(icon)
