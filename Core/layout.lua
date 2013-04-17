@@ -1023,7 +1023,7 @@ local UnitSpecific = {
 		self.AuraStatusBL:ClearAllPoints()
 		self.AuraStatusBL:SetPoint("TOPRIGHT",-1, -1)
 		self.AuraStatusBL:SetFont(cfg.squares, 10, "OUTLINE")
-		--self:Tag(self.AuraStatusBL, "[skaarj:fort]")
+		self:Tag(self.AuraStatusBL, "[skaarj:fort]")
 		
 		
 		self.AuraStatusRT = fs(self.Health, "OVERLAY", cfg.font, cfg.fontsize, cfg.fontflag, 1, 1, 1)
