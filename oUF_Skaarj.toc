@@ -19,6 +19,7 @@ Plugins\rain_healprediction.lua
 Plugins\oUF_DebuffHighlight.lua
 Plugins\oUF_AuraWatch.lua
 Plugins\oUF_Shadoworbs.lua
+Plugins\ResInfo.lua
 
 
 Core\functions.lua
