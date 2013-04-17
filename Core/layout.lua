@@ -339,8 +339,8 @@ local Resurrect = function(self)
 end
 
 local PhanxResurrect = function(self) 
-	self.ResInfo = self.Health.CreateFontString(nil, 16, "CENTER")
-	self.ResInfo:SetPoint("CENTER", 0, 1)
+	self.ResInfo = self.Health.CreateFontString(nil, "OVERLAY")
+	self.ResInfo:SetPoint("CENTER")
 end
 
 local Healcomm = function(self) 
