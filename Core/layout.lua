@@ -361,6 +361,35 @@ local Healcomm = function(self)
 	
 end
 
+--**************
+-- add Rainrider's 'RainHealPrediction' version (incl. absorbs + changed from status bars to textures)
+local AddHealPredictionBar = function(self)
+	local health = self.Health
+
+	local mhpb = health:CreateTexture(nil, "OVERLAY")
+	mhpb:SetTexture(cfg.texture)
+	mhpb:SetVertexColor(0, 0.5, 0.5, 0.5)
+
+	local ohpb = health:CreateTexture(nil, "OVERLAY")
+	ohpb:SetTexture(cfg.texture)
+	ohpb:SetVertexColor(0, 1, 0, 0.5)
+
+	local absorb = health:CreateTexture(nil, "OVERLAY")
+	absorb:SetAlpha(0.5)
+
+	local overAbsorb = health:CreateTexture(nil, "OVERLAY")
+
+	self.RainHealPrediction = {
+	myBar = mhpb,
+	otherBar = ohpb,
+	absorbBar = absorb,
+	overAbsorbGlow = overAbsorb,
+	maxOverflow = 1.25
+	}
+end
+--**************
+
+
 local Setfocus = function(self) 
 	local ModKey = 'Shift'
     local MouseButton = 1
@@ -706,7 +735,7 @@ local UnitSpecific = {
 		self.Power:SetHeight(cfg.power_height)
 		self.unit = "target"
 		
-		if cfg.healcomm then Healcomm(self) end
+		if cfg.healcomm then  AddHealPredictionBar(self) end
 		
 		if cfg.portraits then Portraits(self) end
 		
