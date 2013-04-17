@@ -15,7 +15,7 @@ libs\LibMapData-1.0\library.lua
 cfg.lua
 
 Plugins\oUF_Smooth.lua
-Plugins\oUF_AuraTracker.lua
+Plugins\rain_healprediction.lua
 Plugins\oUF_DebuffHighlight.lua
 Plugins\oUF_AuraWatch.lua
 Plugins\oUF_Shadoworbs.lua
