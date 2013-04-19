@@ -40,7 +40,7 @@ f:SetScript('OnUpdate', function()
 	local limit = 30/GetFramerate()
 	for bar, value in pairs(smoothing) do
 		local cur = bar:GetValue()
-		local new = cur + min((value-cur)/6, max(value-cur, limit))
+		local new = cur + min((value-cur)/3, max(value-cur, limit))
 		
 		
 		

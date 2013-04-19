@@ -251,7 +251,11 @@ end
 oUF.Tags.Events['skaarj:EclipseDirection'] = "UNIT_POWER ECLIPSE_DIRECTION_CHANGE"
 
 local x = "x"
-oUF.Tags.Methods['skaarj:fort'] = function(u) if not(UnitAura(u, GetSpellInfo(21562)) or UnitAura(u, GetSpellInfo(6307)) or UnitAura(u, GetSpellInfo(469))) then return "|cff00A1DE"..x.."|r" end end
+oUF.Tags.Methods['skaarj:fort'] = function(u) 
+	if not(UnitAura(u, GetSpellInfo(21562)) or UnitAura(u, GetSpellInfo(109773)) or UnitAura(u, GetSpellInfo(469))) then 
+		return "|cff00A1DE"..x.."|r" 
+	end 
+end
 oUF.Tags.Events['skaarj:fort'] = "UNIT_AURA"
 
 --[[

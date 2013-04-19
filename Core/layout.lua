@@ -339,7 +339,7 @@ local Resurrect = function(self)
 end
 
 local PhanxResurrect = function(self) 
-	self.ResInfo = self.Health.CreateFontString(nil, "OVERLAY")
+	self.ResInfo = self.Health:CreateFontString(nil, "OVERLAY")
 	self.ResInfo:SetPoint("CENTER")
 end
 
@@ -371,16 +371,24 @@ end
 local AddHealPredictionBar = function(self)
 	local health = self.Health
 
+	local absorb = health:CreateTexture(nil, "OVERLAY")
+	absorb:SetPoint('LEFT', self.Health:GetStatusBarTexture(), 'RIGHT', 0, -1)
+	absorb:SetVertexColor(0.41,	0.80, 0.94, 0.50)
+	
 	local mhpb = health:CreateTexture(nil, "OVERLAY")
 	mhpb:SetTexture(cfg.texture)
-	mhpb:SetVertexColor(0, 0.5, 0.5, 0.5)
+	mhpb:SetPoint('TOPLEFT', self.Health:GetStatusBarTexture(), 'TOPRIGHT', 0, -1)
+	--mhpb:SetHeight(self.Health:GetHeight()*1.5)
+	mhpb:SetVertexColor(0, 1, 0, 0.33)
 
 	local ohpb = health:CreateTexture(nil, "OVERLAY")
 	ohpb:SetTexture(cfg.texture)
-	ohpb:SetVertexColor(0, 1, 0, 0.5)
+	ohpb:SetPoint('BOTTOMLEFT', self.Health:GetStatusBarTexture(), 'BOTTOMRIGHT', 0, 1)
+	--ohpb:SetHeight(self.Health:GetHeight()*0.5)
+	ohpb:SetVertexColor(0, 1, 0, 0.33)
 
-	local absorb = health:CreateTexture(nil, "OVERLAY")
-	absorb:SetAlpha(0.5)
+	
+	
 
 	local overAbsorb = health:CreateTexture(nil, "OVERLAY")
 
@@ -733,14 +741,19 @@ local UnitSpecific = {
     end,
 
     target = function(self, ...)
-        Shared(self, ...)
+        
+		
+		
+		Shared(self, ...)
+		
+		self.menu = menu
 		
 		self:SetSize(cfg.width, cfg.health_height+cfg.power_height+1)
 		self.Health:SetHeight(cfg.health_height)
 		self.Power:SetHeight(cfg.power_height)
 		self.unit = "target"
 		
-		if cfg.healcomm then  AddHealPredictionBar(self) end
+		
 		
 		if cfg.portraits then Portraits(self) end
 		
@@ -834,6 +847,7 @@ local UnitSpecific = {
         PvP:SetSize(28, 28)
         PvP:SetPoint('BOTTOMLEFT', self.Health, 'TOPRIGHT', -15, -20)
         self.PvP = PvP
+		
     end,
 
     focus = function(self, ...)
@@ -924,6 +938,8 @@ local UnitSpecific = {
 		
 		self.RaidIcon:SetSize(20, 20)
 	    self.RaidIcon:SetPoint("TOP", self.Health, 0, 10)
+		 
+		if cfg.healcomm then  AddHealPredictionBar(self) end 
 		 
         if cfg.auras then 
             local d = CreateFrame("Frame", nil, self)
@@ -1063,7 +1079,8 @@ local UnitSpecific = {
 		self.RaidIcon:SetSize(20, 20)
 	    self.RaidIcon:SetPoint("TOP", self.Health, 2, 7)
 		
-		if cfg.healcomm then Healcomm(self) end
+		--if cfg.healcomm then Healcomm(self) end
+		if cfg.healcomm then  AddHealPredictionBar(self) end
 		
 		--Resurrect(self)
 		PhanxResurrect(self)
@@ -1249,21 +1266,25 @@ oUF:Factory(function(self)
 end)
 
 
-local Check_Role = CreateFrame("Frame")
-Check_Role:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
-Check_Role:RegisterEvent("ADDON_LOADED")
+local WatchDog = CreateFrame("Frame")
+WatchDog:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
+WatchDog:RegisterEvent('PLAYER_REGEN_DISABLED')
+WatchDog:RegisterEvent('PLAYER_REGEN_ENABLED')
+--WatchDog:RegisterEvent("ADDON_LOADED")
 
-Check_Role:SetScript("OnEvent", function(self, event)
+WatchDog:SetScript("OnEvent", function(self, event)
 	
-	print("Check_Role")
-	local id, name, description, icon, background, role = GetSpecializationInfo(GetSpecialization())
-	if role == 'HEALER' then
-		print('oUF RAIDFRAMES enabled --> reload UI')
-		cfg.disableRaidFrameManager = true
-		cfg.raid = true
-	else
-		print('oUF RAIDFRAMES disabled --> reload UI')
-		cfg.disableRaidFrameManager = false
-		cfg.raid = false
+	--print("WatchDog")
+	if event=='ACTIVE_TALENT_GROUP_CHANGED' then
+		local id, name, description, icon, background, role = GetSpecializationInfo(GetSpecialization())
+		if role == 'HEALER' then
+			print('oUF RAIDFRAMES enabled --> reload UI')
+			cfg.disableRaidFrameManager = true
+			cfg.raid = true
+		else
+			print('oUF RAIDFRAMES disabled --> reload UI')
+			cfg.disableRaidFrameManager = false
+			cfg.raid = false
+		end
 	end
 end)

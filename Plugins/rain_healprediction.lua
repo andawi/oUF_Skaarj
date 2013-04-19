@@ -56,12 +56,14 @@ local UpdateFillBar = function(frame, previousTexture, bar, amount, maxHealth)
 		return previousTexture
 	end
 
-	bar:SetPoint('TOPLEFT', previousTexture, 'TOPRIGHT', 0, 0)
-	bar:SetPoint('BOTTOMLEFT', previousTexture, 'BOTTOMRIGHT', 0, 0)
+	--bar:SetPoint('TOPLEFT', previousTexture, 'TOPRIGHT', 0, 0)
+	--bar:SetPoint('BOTTOMLEFT', previousTexture, 'BOTTOMRIGHT', 0, 0)
 
 	local barWidth = (amount / maxHealth) * frame.Health:GetWidth()
 	bar:SetWidth(barWidth)
+	bar:SetHeight(frame.Health:GetHeight()*.5)
 	bar:Show()
+	
 
 	return bar
 end
