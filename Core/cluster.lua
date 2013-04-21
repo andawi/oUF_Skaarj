@@ -186,8 +186,8 @@ local Enable = function(self)
         update = 200 / 1000
         healrange = 30
 
-        local freebCluster = fs(self.Health, "OVERLAY", cfg.font, 10, cfg.fontflag, 1, 1, 1)
-        freebCluster:SetPoint("RIGHT", 2, 0)
+        local freebCluster = fs(self.Health, "OVERLAY", cfg.font, 8, cfg.fontflag, 1, 1, 1)
+        freebCluster:SetPoint("TOPRIGHT", 1, -1)
         freebCluster:SetJustifyH("RIGHT")
         self.freebCluster = freebCluster
 		self.freebCluster.frequentUpdates = update
@@ -205,7 +205,7 @@ local Enable = function(self)
 
 		--DEBUG
 		
-		ClusterDebug = fs(UIParent, "OVERLAY", cfg.font, 10, cfg.fontflag, 1, 1, 1)
+		ClusterDebug = fs(UIParent, "OVERLAY", cfg.font, 8, cfg.fontflag, 1, 1, 1)
 		ClusterDebug:SetJustifyH("LEFT")
         ClusterDebug:SetPoint("CENTER",600, -250)
 		

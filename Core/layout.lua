@@ -373,7 +373,7 @@ local AddHealPredictionBar = function(self)
 
 	local absorb = health:CreateTexture(nil, "OVERLAY")
 	absorb:SetPoint('LEFT', self.Health:GetStatusBarTexture(), 'RIGHT', 0, -1)
-	absorb:SetVertexColor(0.41,	0.80, 0.94, 0.50)
+	absorb:SetVertexColor(0.41,	0.80, 0.94, 0.33)
 	
 	local mhpb = health:CreateTexture(nil, "OVERLAY")
 	mhpb:SetTexture(cfg.texture)
@@ -502,7 +502,7 @@ local Shared = function(self, unit)
 	end
     self.MasterLooter = ml
 
-	local a = h:CreateTexture(nil, "ARTWORK")
+	local a = h:CreateTexture(nil, "OVERLAY")
 	if (unit == "raid") then
 	    a:SetPoint("BOTTOMLEFT", self, "TOPLEFT", -1, -4)
         a:SetSize(10, 10)
@@ -511,7 +511,7 @@ local Shared = function(self, unit)
         a:SetSize(16, 16)
 	end
 
-	local rc = h:CreateTexture(nil, "ARTWORK")
+	local rc = h:CreateTexture(nil, "OVERLAY")
 	rc:SetSize(14, 14)
 	if (unit == "raid") then
 	    rc:SetPoint("CENTER", self)
@@ -1035,11 +1035,7 @@ local UnitSpecific = {
 		self.DebuffHighlightAlpha = 1
 		
 		
-		self.AuraStatusBL = self.Health:CreateFontString(nil, "OVERLAY")
-		self.AuraStatusBL:ClearAllPoints()
-		self.AuraStatusBL:SetPoint("TOPRIGHT",-1, -1)
-		self.AuraStatusBL:SetFont(cfg.squares, 10, "OUTLINE")
-		self:Tag(self.AuraStatusBL, "[skaarj:fort]")
+		
 		
 		
 		self.AuraStatusRT = fs(self.Health, "OVERLAY", cfg.font, cfg.fontsize, cfg.fontflag, 1, 1, 1)
@@ -1075,6 +1071,14 @@ local UnitSpecific = {
 		local lfd = fs(self.Health, "OVERLAY", cfg.symbol, 8, "", 1, 1, 1)
 		lfd:SetPoint("TOPLEFT", 27, -4)
 	    self:Tag(lfd, '[skaarj:LFD]')	
+		
+		self.AuraStatusPWF = self.Health:CreateFontString(nil, "OVERLAY")
+		self.AuraStatusPWF:SetPoint("BOTTOMRIGHT", 2, 1)
+		self.AuraStatusPWF:SetJustifyH("RIGHT")
+		self.AuraStatusPWF:SetFont(cfg.squares, 10, "OUTLINE")
+		self:Tag(self.AuraStatusPWF, "[skaarj:fort]")
+		
+		
 		
 		self.RaidIcon:SetSize(20, 20)
 	    self.RaidIcon:SetPoint("TOP", self.Health, 2, 7)
