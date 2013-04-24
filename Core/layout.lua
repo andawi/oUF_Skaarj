@@ -240,6 +240,12 @@ end
 
 local AWIcon = function(AWatch, icon, spellID, name, self)			
 	
+	--[[
+	local classcolor = RAID_CLASS_COLORS[PLAYERCLASS]
+	local r,g,b = classcolor.r,classcolor.g,classcolor.b
+	]]
+	
+	
 	icon:SetBackdrop(backdrop_1px)
 
 	if spellID == 6788 then 
@@ -287,9 +293,6 @@ local createAuraWatch = function(self, unit)
 					icon:SetPoint("BOTTOMLEFT", self.Health, "BOTTOMRIGHT", -7 * i, 0)
 				end
 		
-				--[[if v[5] and v[5] == false then 
-					
-				end]]
 				icon.anyUnit = v[5] 
 				
 				local name, _, image = GetSpellInfo(v[1])
