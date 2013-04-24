@@ -180,7 +180,7 @@ cfg.spellIDs = {
 	{31884,		14, 40, -8, true, 0.95, 'GENERIC'},			-- Avenging Wrath (Pala Heal CD)
 	
 	{81700,		14, 40, -8, true, 0.95, 'GENERIC'},			-- Archangel
-	{109964,	12, 53, -8, true, 0.95, 'GENERIC'},			-- Spirit Shell
+	{109964,	12, 53, -8, true, 0.95, 'GENERIC', 'PRIEST'},			-- Spirit Shell
 	
 	
 	
