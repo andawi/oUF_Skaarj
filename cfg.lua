@@ -129,8 +129,8 @@ cfg.spellIDs = {
 	{86659, 	24, 35, 0, true, 0.9, 'GENERIC'},			-- Guardian of Ancient Kings (50%; 3min; PROT)
 	{106922, 	24, 35, 0, true, 0.9, 'GENERIC'},			-- Might of Ursoc (+30% HP; 3min CD)
 	{48707,		24, 35, 0, true, 0.9, 'GENERIC'}, 			-- Anti-magic Shell
-	{115203		24, 35, 0, true, 0.9, 'GENERIC'}, 			-- Fortifying Brew (20%; 3min)
-	{118038		24, 35, 0, true, 0.9, 'GENERIC'}, 			-- Die by the Sword (Warrior 20%; 2min)
+	{115203,	24, 35, 0, true, 0.9, 'GENERIC'}, 			-- Fortifying Brew (20%; 3min)
+	{118038,	24, 35, 0, true, 0.9, 'GENERIC'}, 			-- Die by the Sword (Warrior 20%; 2min)
 	
 	
 	--POS3 (52, 0) - personal Defensive CDs #3
@@ -160,8 +160,9 @@ cfg.spellIDs = {
 	{33206, 	24, 122, 0, true, 0.9, 'GENERIC'},			-- Pain Suppress
 	{102342, 	24, 122, 0, true, 0.9, 'GENERIC'},			-- Ironbark (20%; 2min; RESTO)
 	{47788, 	24, 122, 0, true, 0.9, 'GENERIC'},			-- Guardian Spirit
-	{1022, 		24, 122, 0, true, 0.9, 'GENERIC'},			-- Hand of Protection
-	{6940, 		24, 122, 0, true, 0.9, 'GENERIC'},			-- Hand of Sacrifice
+	{1022, 		24, 122, 0, true, 0.5, 'GENERIC'},			-- Hand of Protection
+	{6940, 		24, 122, 0, true, 0.5, 'GENERIC'},			-- Hand of Sacrifice
+	
 	
 	
 	-- Mana CDs @ Mana Bar

@@ -242,7 +242,7 @@ local AWIcon = function(AWatch, icon, spellID, name, self)
 	
 	
 	if icon.Class then 
-		local classcolor = RAID_CLASS_COLORS[PLAYERCLASS]
+		local classcolor = RAID_CLASS_COLORS[icon.Class]
 		local r,g,b = classcolor.r,classcolor.g,classcolor.b
 		print(icon.Class)
 		print(r, g, b)
