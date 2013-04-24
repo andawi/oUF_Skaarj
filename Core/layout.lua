@@ -256,6 +256,8 @@ local AWIcon = function(AWatch, icon, spellID, name, self)
 	
 	icon.cd:SetReverse(true)
 	
+	if icon.Class then print(icon.Class) end
+	
 end
 
 local CustomDebuffFilter = function(icons, unit, icon, name, rank, texture, count, dtype, duration, timeLeft, caster)
@@ -279,7 +281,6 @@ local createAuraWatch = function(self, unit)
 		
 		for i, v in pairs(cfg.spellIDs) do
 		
-			auras.PostCreateIcon = AWIcon
 		
 			if (v[7] == class) or (v[7] == 'GENERIC') then
 				local icon = CreateFrame("Frame", nil, auras)
@@ -315,6 +316,11 @@ local createAuraWatch = function(self, unit)
 				
 				auras.icons[v[1]] = icon
 			end
+			
+			if v[8] then icon.Class = v[8] end
+			
+			auras.PostCreateIcon = AWIcon
+			
 		end
 		self.AuraWatch = auras
 	end
