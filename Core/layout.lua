@@ -367,7 +367,7 @@ local Healcomm = function(self)
 end
 
 --**************
--- add Rainrider's 'RainHealPrediction' version (incl. absorbs + changed from status bars to textures)
+-- add modified version of Rainrider's 'RainHealPrediction' (incl. absorbs + changed from status bars to textures)
 local AddHealPredictionBar = function(self)
 	local health = self.Health
 
@@ -386,9 +386,6 @@ local AddHealPredictionBar = function(self)
 	ohpb:SetPoint('BOTTOMLEFT', self.Health:GetStatusBarTexture(), 'BOTTOMRIGHT', 0, 1)
 	--ohpb:SetHeight(self.Health:GetHeight()*0.5)
 	ohpb:SetVertexColor(0, 1, 0, 0.33)
-
-	
-	
 
 	local overAbsorb = health:CreateTexture(nil, "OVERLAY")
 
@@ -483,7 +480,7 @@ local Shared = function(self, unit)
         self.Power = p
     end
 	
-	local l = h:CreateTexture(nil, "ARTWORK")
+	local l = h:CreateTexture(nil, "OVERLAY")
 	if (unit == "raid") then
 	    l:SetPoint("BOTTOMLEFT", self.Health, "TOPLEFT", -1, -4)
         l:SetSize(10, 10)
@@ -493,7 +490,7 @@ local Shared = function(self, unit)
 	end
     self.Leader = l
 
-    local ml = h:CreateTexture(nil, 'ARTWORK')
+    local ml = h:CreateTexture(nil, 'OVERLAY')
 	    ml:SetPoint("LEFT", l, "RIGHT")
 	if (unit == "raid") then
         ml:SetSize(10, 10)
@@ -1035,23 +1032,33 @@ local UnitSpecific = {
 		self.DebuffHighlightAlpha = 1
 		
 		
-		
-		
-		
-		self.AuraStatusRT = fs(self.Health, "OVERLAY", cfg.font, cfg.fontsize, cfg.fontflag, 1, 1, 1)
-		self.AuraStatusRT:ClearAllPoints()
-		self.AuraStatusRT:SetPoint("TOPRIGHT",-8, -2)
-		self.AuraStatusRT.frequentUpdates = 0.1
-		self.AuraStatusRT:SetAlpha(.6)
-		self:Tag(self.AuraStatusRT, "[skaarj:DA]")
-		
-		self.AuraStatusSS = fs(self.Health, "OVERLAY", cfg.font, cfg.fontsize, cfg.fontflag, 1, 1, 1)
-		self.AuraStatusSS:ClearAllPoints()
-		self.AuraStatusSS:SetPoint("BOTTOMRIGHT",-8, 0)
-		self.AuraStatusSS.frequentUpdates = 0.1
-		self.AuraStatusSS:SetAlpha(.6)
-		self:Tag(self.AuraStatusSS, "[skaarj:SS]")
+		if class == "PRIEST" then
+				
+			self.AuraStatusRT = fs(self.Health, "OVERLAY", cfg.font, cfg.fontsize, cfg.fontflag, 1, 1, 1)
+			self.AuraStatusRT:ClearAllPoints()
+			self.AuraStatusRT:SetPoint("TOPRIGHT",-8, -2)
+			self.AuraStatusRT.frequentUpdates = 0.1
+			self.AuraStatusRT:SetAlpha(.6)
+			self:Tag(self.AuraStatusRT, "[skaarj:DA]")
+			
+			self.AuraStatusSS = fs(self.Health, "OVERLAY", cfg.font, cfg.fontsize, cfg.fontflag, 1, 1, 1)
+			self.AuraStatusSS:ClearAllPoints()
+			self.AuraStatusSS:SetPoint("BOTTOMRIGHT",-8, 0)
+			self.AuraStatusSS.frequentUpdates = 0.1
+			self.AuraStatusSS:SetAlpha(.6)
+			self:Tag(self.AuraStatusSS, "[skaarj:SS]")
+			
+			self.AuraStatusPWF = self.Health:CreateFontString(nil, "OVERLAY")
+			self.AuraStatusPWF:SetPoint("BOTTOMRIGHT", 2, 1)
+			self.AuraStatusPWF:SetJustifyH("RIGHT")
+			self.AuraStatusPWF:SetFont(cfg.squares, 10, "OUTLINE")
+			self:Tag(self.AuraStatusPWF, "[skaarj:fort]")
+			
 
+		end
+			
+			
+			
 		local name = fs(self.Health, "OVERLAY", cfg.fontB, 13)
 		name:SetPoint("TOPLEFT", self.Health, 3, -4)
 	    name:SetJustifyH"LEFT"
@@ -1072,14 +1079,7 @@ local UnitSpecific = {
 		lfd:SetPoint("TOPLEFT", 27, -4)
 	    self:Tag(lfd, '[skaarj:LFD]')	
 		
-		self.AuraStatusPWF = self.Health:CreateFontString(nil, "OVERLAY")
-		self.AuraStatusPWF:SetPoint("BOTTOMRIGHT", 2, 1)
-		self.AuraStatusPWF:SetJustifyH("RIGHT")
-		self.AuraStatusPWF:SetFont(cfg.squares, 10, "OUTLINE")
-		self:Tag(self.AuraStatusPWF, "[skaarj:fort]")
-		
-		
-		
+	
 		self.RaidIcon:SetSize(20, 20)
 	    self.RaidIcon:SetPoint("TOP", self.Health, 2, 7)
 		
@@ -1198,9 +1198,9 @@ oUF:Factory(function(self)
 		self:SetActiveStyle'Skaarj - Raid'
 		local raid = {}
 		local numRaidMembers = GetNumGroupMembers ()
+		
 		if numRaidMembers < 18 then
-			
-			
+					
 			for i = 1, 2 do
 				local raidgroup = oUF:SpawnHeader(nil, nil, "custom [@raid6,exists] show; show", --"custom [@raid6,exists] show; hide"
 				'oUF-initialConfigFunction', ([[self:SetWidth(%d) self:SetHeight(%d)]]):format(cfg.raid_width, cfg.raid_health_height+cfg.raid_power_height+1),
