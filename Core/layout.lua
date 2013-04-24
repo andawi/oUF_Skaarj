@@ -240,10 +240,13 @@ end
 
 local AWIcon = function(AWatch, icon, spellID, name, self)			
 	
-	--[[
-	local classcolor = RAID_CLASS_COLORS[PLAYERCLASS]
-	local r,g,b = classcolor.r,classcolor.g,classcolor.b
-	]]
+	
+	if icon.Class then 
+		local classcolor = RAID_CLASS_COLORS[PLAYERCLASS]
+		local r,g,b = classcolor.r,classcolor.g,classcolor.b
+		print(icon.Class)
+		print(r, g, b)
+	end
 	
 	
 	icon:SetBackdrop(backdrop_1px)
@@ -256,7 +259,7 @@ local AWIcon = function(AWatch, icon, spellID, name, self)
 	
 	icon.cd:SetReverse(true)
 	
-	if icon.Class then print(icon.Class) end
+	
 	
 end
 
@@ -270,17 +273,15 @@ end
 
 local createAuraWatch = function(self, unit)
 	if cfg.showAuraWatch then
+		
 		local auras = CreateFrame("Frame", nil, self)
 		auras:SetAllPoints(self.Health)
 		auras.onlyShowPresent = true
 		auras.icons = {}
-		
 		auras.hideCooldown = true			-- org. AuraWatch cd frame will overlap each other - thus create own frame for this
-		
 		auras:SetFrameStrata('HIGH')
 		
 		for i, v in pairs(cfg.spellIDs) do
-		
 		
 			if (v[7] == class) or (v[7] == 'GENERIC') then
 				local icon = CreateFrame("Frame", nil, auras)
@@ -313,11 +314,11 @@ local createAuraWatch = function(self, unit)
 				cd:SetAllPoints(icon)
 				cd:SetFrameLevel(i)
 				icon.cd = cd
-				
+			
+				if v[8] then icon.Class = v[8] end
+			
 				auras.icons[v[1]] = icon
 			end
-			
-			if v[8] then icon.Class = v[8] end
 			
 			auras.PostCreateIcon = AWIcon
 			
