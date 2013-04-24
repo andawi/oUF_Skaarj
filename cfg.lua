@@ -109,87 +109,80 @@ cfg.spellIDs = {
 	{139, 		14, 43, 11, false, 1, 'PRIEST'}, 			-- Renew
 	{77613, 	14, 59, 11, false, 1, 'PRIEST'},				-- Grace
 	
+	
+	
 	--POS1 (18, 0) - personal Defensive CDs #1
-	{642, 		26, 18, 0, true, 1, 'GENERIC'}, 			-- Divine Shield (100%; 5min)
-	{871, 		26, 18, 0, true, 0.95, 'GENERIC'}, 			-- Shield Wall (40%; 5min)
-	{61336, 	26, 18, 0, true, 0.95, 'GENERIC'},			-- Survival Instincts (50%; 3min)		
-	{19263, 	26, 18, 0, true, 0.95, 'GENERIC'},			-- Deterrence (100% deflect; 30% AoE; 2min)
-	{45438, 	26, 18, 0, true, 0.95, 'GENERIC'},			-- Iceblock (100%; 5min)
-	{30823, 	26,	18, 0, true, 0.95, 'GENERIC'},			-- Shamanistic Rage (30%; 1min CD)
-	{108271, 	26, 18, 0, true, 0.95, 'GENERIC'},			-- Astral Shift (40%, 2min CD)
-	{48792, 	26, 18, 0, true, 0.95, 'GENERIC'},			-- Icebound Fortitude (20%; 3min)
+	{498, 		24, 18, 0, true, 0.9, 'GENERIC'},  			-- Divine Protection (40%; 1min CD)
+	{871, 		24, 18, 0, true, 0.9, 'GENERIC'}, 			-- Shield Wall (40%; 5min)
+	{61336, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Survival Instincts (50%; 3min)		
+	{19263, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Deterrence (100% deflect; 30% AoE; 2min)
+	{45438, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Iceblock (100%; 5min)
+	{108271, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Astral Shift (Shaman 40%, 2min CD)
+	{48792, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Icebound Fortitude (20%; 3min)
+	{110913, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Dark Bargain (Warlock 100%; 3min)
+	{31224, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Cloak of Shadows (100%, 1min)
+	{122738, 	24, 18, 0, true, 0.9, 'GENERIC'},    		-- Diffuse Magic (Monk, 90%; 90sec)
+	{47585, 	24, 18, 0, true, 0.9, 'GENERIC'}, 			-- Dispersion (Shadow, 90%; 2min)
 	
 	
-	--POS2 (32, 0) - personal Defensive CDs #2
-	{86659, 	26, 32, 0, true, 0.95, 'GENERIC'},			-- Guardian of Ancient Kings (50%; 3min; PROT)
-	{12975, 	26, 32, 0, true, 0.95, 'GENERIC'},			-- Last Stand (+30% HP; 3min CD)
-	{106922, 	26, 32, 0, true, 0.95, 'GENERIC'},			-- Might of Ursoc (+30% HP; 3min CD)
-	{48707,		25, 32, 0, true, 0.95, 'GENERIC'}, 			-- Anti-magic Shell
-	
-	--POS3 (46, 0) - personal Defensive CDs #3
-	{31850,		26, 46, 0, true, 0.95, 'GENERIC'},			-- Ardent Defender (20%; 3min CD; lifesaver)
-	{22812, 	26, 46, 0, true, 0.95, 'GENERIC'},			-- Barkskin (20%; 1min)
-	{55233, 	26, 46, 0, true, 0.95, 'GENERIC'}, 			-- Vampiric Blood	
-	
-	--POS4 (60, 0) - personal Defensive CDs #4
-	{498, 		26, 60, 0, true, 0.95, 'GENERIC'},  		-- Divine Protection (40%; 1min CD)
-	
-
-	--POS5 (74, 0)
-	{31821,		26, 74, 0, true, 0.95, 'GENERIC'},			-- Devotion Aura (20%; 3min; magic)
-	{1022, 		26, 74, 0, true, 0.95, 'GENERIC'},			-- Hand of Protection
-	{6940, 		26, 74, 0, true, 0.95, 'GENERIC'},			-- Hand of Sacrifice
-	
-	--POS6 (88, 0)
-	
-
-	--POS7 (102, 0)
-	{81782,		26, 102, 0, true, 0.95, 'GENERIC'},			-- Power Word Barrier
-
-	-- POS8 (116, 0) overlap w/ POS7
-	{740, 		26, 108, 0, true, 0.95, 'GENERIC'},			-- Tranquility
-	
-	-- POS9
-	{97462, 	26, 112, 0, true, 0.95, 'GENERIC'},			-- Rallying Cry
+	--POS2 (35, 0) - personal Defensive CDs #2
+	{86659, 	24, 35, 0, true, 0.9, 'GENERIC'},			-- Guardian of Ancient Kings (50%; 3min; PROT)
+	{106922, 	24, 35, 0, true, 0.9, 'GENERIC'},			-- Might of Ursoc (+30% HP; 3min CD)
+	{48707,		24, 35, 0, true, 0.9, 'GENERIC'}, 			-- Anti-magic Shell
+	{115203		24, 35, 0, true, 0.9, 'GENERIC'}, 			-- Fortifying Brew (20%; 3min)
+	{118038		24, 35, 0, true, 0.9, 'GENERIC'}, 			-- Die by the Sword (Warrior 20%; 2min)
 	
 	
-	-- POS10 (122, 0) - last POS
-	{33206, 	26, 122, 0, true, 0.95, 'GENERIC'},			-- Pain Suppress
-	{102342, 	26, 122, 0, true, 0.95, 'GENERIC'},			-- Ironbark (20%; 2min; RESTO)
-	{47788, 	26, 122, 0, true, 0.95, 'GENERIC'},			-- Guardian Spirit
-	
+	--POS3 (52, 0) - personal Defensive CDs #3
+	{31850,		24, 52, 0, true, 0.9, 'GENERIC'},			-- Ardent Defender (20%; 3min CD; lifesaver)
+	{642, 		24, 52, 0, true, 0.9, 'GENERIC'}, 			-- Divine Shield (100%; 5min)
+	{22812, 	24, 52, 0, true, 0.9, 'GENERIC'},			-- Barkskin (20%; 1min)
+	{55233, 	24, 52, 0, true, 0.9, 'GENERIC'}, 			-- Vampiric Blood	
+	{104773, 	24, 52, 0, true, 0.9, 'GENERIC'},			-- Unending Resolve (Warlock 40%; 3min)
+	{30823, 	24,	52, 0, true, 0.9, 'GENERIC'},			-- Shamanistic Rage (Elemental, Enhancement 30%; 1min CD)
+	{1966, 		24,	52, 0, true, 0.9, 'GENERIC'},			-- Feint (AoE 50%; 65% w/ Glyph - no CD)
+	{115176, 	24,	52, 0, true, 0.9, 'GENERIC'},			-- Zen Meditaion (90% group saver; 3min)
+	{12975, 	24, 52, 0, true, 0.9, 'GENERIC'},			-- Last Stand (+30% HP; 3min CD)
 
 	
+	--POS4 (69, 0) - raid wide CDs #4
+	{31821,		24, 69, 0, true, 0.9, 'GENERIC'},			-- Devotion Aura (20%; 3min; magic)
 	
+	--POS5 (86, 0)
+	{740, 		24, 86, 0, true, 0.95, 'GENERIC'},			-- Tranquility
 	
+	--POS6 (103, 0) 
+	{97462, 	24, 103, 0, true, 0.95, 'GENERIC'},			-- Rallying Cry
+	{81782,		24, 103, 0, true, 0.95, 'GENERIC'},			-- Power Word Barrier
+
 	
-	
+	--POS7 (122, 0) - last pos
+	{33206, 	24, 122, 0, true, 0.9, 'GENERIC'},			-- Pain Suppress
+	{102342, 	24, 122, 0, true, 0.9, 'GENERIC'},			-- Ironbark (20%; 2min; RESTO)
+	{47788, 	24, 122, 0, true, 0.9, 'GENERIC'},			-- Guardian Spirit
+	{1022, 		24, 122, 0, true, 0.9, 'GENERIC'},			-- Hand of Protection
+	{6940, 		24, 122, 0, true, 0.9, 'GENERIC'},			-- Hand of Sacrifice
 	
 	
 	-- Mana CDs @ Mana Bar
-	{64901,   	20, 125, -17, true, 0.95, 'GENERIC'},		-- Hymn of Hope
-	{29166,		20, 125, -17, true, 0.95, 'GENERIC'},			-- Innervate
+	{64901,   	20, 125, -16, true, 0.95, 'GENERIC'},		-- Hymn of Hope
+	{29166,		20, 125, -16, true, 0.95, 'GENERIC'},		-- Innervate
 	
 	
 	-- minor CDs
-	{112048,	14, 40, -8, true, 0.95, 'GENERIC'},		-- Shield Barrier
-	{132404,	14, 53, -8, true, 0.95, 'GENERIC'},		-- Shield Block
+	{112048,	14, 40, -8, true, 0.95, 'GENERIC'},			-- Shield Barrier
+	{132404,	14, 53, -8, true, 0.95, 'GENERIC'},			-- Shield Block
 	
-	{132402,	14, 40, -8, true, 0.95, 'GENERIC'},		-- Savage Defense
+	{132402,	14, 40, -8, true, 0.95, 'GENERIC'},			-- Savage Defense
 	
 	{114052,	14,	40, -8, true, 0.95, 'GENERIC'},			-- Ascendance (Resto Shaman Heal CD)
 	{33891,		14, 40, -8, true, 0.95, 'GENERIC'},			-- Tree Form (Resto Druid)
 	{31884,		14, 40, -8, true, 0.95, 'GENERIC'},			-- Avenging Wrath (Pala Heal CD)
 	
 	{81700,		14, 40, -8, true, 0.95, 'GENERIC'},			-- Archangel
-	--{114908,	12, 53, -8, true, 0.95, 'GENERIC'},			-- Spirit Shell
+	{109964,	12, 53, -8, true, 0.95, 'GENERIC'},			-- Spirit Shell
 	
 	
-	
-	
-	
-	
-
 	
 
 
