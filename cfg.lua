@@ -121,7 +121,7 @@ cfg.spellIDs = {
 	{48792, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Icebound Fortitude (20%; 3min)
 	{110913, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Dark Bargain (Warlock 100%; 3min)
 	{31224, 	24, 18, 0, true, 0.9, 'GENERIC'},			-- Cloak of Shadows (100%, 1min)
-	{122738, 	24, 18, 0, true, 0.9, 'GENERIC'},    		-- Diffuse Magic (Monk, 90%; 90sec)
+	{122783, 	24, 18, 0, true, 0.9, 'GENERIC'},    			-- Diffuse Magic (Monk, 90%; 90sec)
 	{47585, 	24, 18, 0, true, 0.9, 'GENERIC'}, 			-- Dispersion (Shadow, 90%; 2min)
 	
 	
